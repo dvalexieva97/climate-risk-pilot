@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portugal Climate Risk — Pilot Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Portugal Climate Risk (V0 pilot)</h1>
+      <p class="subtitle">
+        Hazard layers + historical event counts (last <span id="event-years">20</span> years)
+      </p>
+    </header>
+
+    <main>
+      <aside id="controls">
+        <section>
+          <h2>Hazard layer</h2>
+          <label><input type="radio" name="layer" value="flood" checked /> Flood depth (100y)</label>
+          <label><input type="radio" name="layer" value="wildfire" /> Wildfire (FWI p90)</label>
+          <label><input type="radio" name="layer" value="drought" /> Drought (SPI-12)</label>
+          <label><input type="radio" name="layer" value="landslide" /> Landslide susceptibility</label>
+        </section>
+        <section>
+          <h2>Overlay</h2>
+          <label><input type="checkbox" id="show-events" /> Event count raster</label>
+        </section>
+        <section id="legend">
+          <h2>Legend</h2>
+          <div id="legend-body"></div>
+        </section>
+        <section id="info">
+          <h2>Click info</h2>
+          <pre id="info-body">Click the map after layers load.</pre>
+        </section>
+      </aside>
+      <div id="map"></div>
+    </main>
+
+    <footer>
+      <p>
+        V0 hazard-only. Not for property decisions. Methodology: IPCC H×E×V framework;
+        see <code>README.md</code>.
+      </p>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="config.js"></script>
+    <script src="map.js"></script>
+  </body>
+</html>

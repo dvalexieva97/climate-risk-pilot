@@ -1,0 +1,35 @@
+# Portugal pilot — mainland bbox (Azores/Madeira excluded in V0)
+
+region:
+  name: portugal
+  label: "Portugal (mainland)"
+  # WGS84: min_lon, min_lat, max_lon, max_lat
+  bbox_wgs84: [-9.53, 36.84, -6.19, 42.16]
+
+event_history:
+  years: 20
+  # 2006–2025 by default when end_year is null
+
+hazards:
+  flood:
+    return_period_years: 100
+  wildfire:
+    metric: fwi_p90_summer
+  drought:
+    metric: spi_12
+  landslide:
+    # Register at https://esdac.jrc.ec.europa.eu/content/european-landslide-susceptibility-map-elsus-v2
+    elsus_raw_path: data/raw/elsus/ELSUS_v2.tif
+
+paths:
+  raw_dir: data/raw/portugal
+  processed_dir: data/processed/portugal
+  events_dir: data/events/portugal
+
+gcs:
+  prefix: climate-risk/v0/portugal
+
+# Optional: full-Europe 1 km overview (flood only) — not run in pilot by default
+overview:
+  enabled: false
+  resolution_m: 1000

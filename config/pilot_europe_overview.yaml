@@ -1,0 +1,25 @@
+# Europe-scale scaffold (not executed in V0)
+
+region:
+  name: europe
+  label: "Europe (overview)"
+  bbox_wgs84: [-31.5, 27.0, 45.5, 72.0]
+
+grid:
+  resolution_m: 1000  # deliberately coarse for overview
+
+event_history:
+  years: 20
+
+paths:
+  raw_dir: data/raw/europe
+  processed_dir: data/processed/europe
+  events_dir: data/events/europe
+
+gcs:
+  prefix: climate-risk/v0/europe
+
+overview:
+  enabled: true
+  hazards:
+    - flood

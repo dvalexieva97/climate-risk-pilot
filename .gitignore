@@ -1,0 +1,40 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Data (large rasters — never commit)
+data/raw/
+data/processed/
+data/events/
+data/downloads/
+
+# Secrets / local overrides
+.env
+.env.local
+config/local.yaml
+credentials.json
+*.key
+
+# Earth Engine
+.ee/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Web build artifacts
+web/tiles/

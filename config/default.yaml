@@ -1,0 +1,49 @@
+# Shared defaults — override per region in config/pilot_*.yaml
+
+grid:
+  crs: "EPSG:3035"
+  resolution_m: 250
+  nodata: -9999
+
+event_history:
+  years: 20
+  # end_year: null means "current calendar year" at run time
+
+hazards:
+  flood:
+    enabled: true
+    return_period_years: 100
+    source: earth_engine  # earth_engine | jrc_local
+  wildfire:
+    enabled: true
+    metric: fwi_p90_summer  # 90th percentile FWI, Jun–Sep
+    fwi_threshold_high: 30
+  drought:
+    enabled: true
+    metric: spi_12
+    spi_drought_threshold: -1.5
+    min_drought_months: 3  # consecutive months to count as one drought event
+  landslide:
+    enabled: true
+    source: elsus_v2
+    # elsus_raw_path set in region config or via ELSUS_RAW_PATH env
+
+paths:
+  raw_dir: data/raw
+  processed_dir: data/processed
+  events_dir: data/events
+  catalog_dir: data/events/catalog
+
+gcs:
+  bucket: null  # or set CLIMATE_RISK_GCS_BUCKET
+  prefix: climate-risk/v0
+  upload: false
+
+export:
+  cog: true
+  compress: DEFLATE
+  overview_levels: [2, 4, 8, 16]
+
+nuts3:
+  enabled: true
+  source: geojson  # bundled simplified NUTS3 for pilot country

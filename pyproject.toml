@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "climate-risk"
+version = "0.1.0"
+description = "Europe climate risk assessment — hazard layers and historical event counts"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "click>=8.1",
+    "geopandas>=0.14",
+    "google-cloud-storage>=2.14",
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "pyarrow>=14.0",
+    "pyproj>=3.6",
+    "pyyaml>=6.0",
+    "rasterio>=1.3",
+    "requests>=2.31",
+    "rioxarray>=0.15",
+    "shapely>=2.0",
+    "xarray>=2023.1",
+    "earthengine-api>=0.1.384",
+]
+
+[project.optional-dependencies]
+ee = ["earthengine-api>=0.1.384"]
+dev = ["pytest>=7.4", "ruff>=0.1"]
+
+[project.scripts]
+climate-risk = "climate_risk.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
