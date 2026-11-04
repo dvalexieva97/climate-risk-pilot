@@ -130,3 +130,7 @@ Open `http://localhost:5500`.
 - ELSUS: ESDAC terms (registration required)  
 - EFFIS / EFAS: Copernicus EMS terms  
 - ERA5-Land: Copernicus CDS terms  
+
+## Data cache
+
+Inputs live at `../data/climate-risk/` (symlink `data` → `../../data/climate-risk`).

@@ -38,3 +38,4 @@ credentials.json
 
 # Web build artifacts
 web/tiles/
+data/
